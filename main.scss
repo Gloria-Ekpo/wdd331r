@@ -1,0 +1,131 @@
+$primary-color: #333;
+$secondary-color: #666;
+$hover-color: #00ddff;
+$active-color: #DEB887;
+$border-color: #d0d0d0;
+$font-family-base: 'Helvetica, Arial, sans-serif';
+$font-family-header: 'Lora', serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+html {
+    width: 100%;
+  }
+  
+  body {
+    font-family: $font-family-base;
+    color: $primary-color;
+  
+    h1, h2 {
+      font-family: $font-family-header;
+    }
+  
+    header {
+      h1 {
+        text-align: center;
+        font-size: 4.7em;
+  
+        a {
+          color: $primary-color;
+          text-decoration: none;
+  
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  
+    nav {
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+      font-family: $font-family-header;
+  
+      ul {
+        margin: 0;
+  
+        li {
+          padding: 0.5em;
+          list-style-type: none;
+          text-align: center;
+          text-transform: uppercase;
+          font-size: 1.2em;
+  
+          a {
+            text-decoration: none;
+            color: $secondary-color;
+  
+            &:visited {
+              color: $secondary-color;
+            }
+  
+            &:hover {
+              color: $hover-color;
+            }
+  
+            &:active {
+              color: $active-color;
+            }
+          }
+        }
+      }
+    }
+  
+    .post-date {
+      text-align: right;
+      text-transform: uppercase;
+      border-bottom: 1px solid $border-color;
+      margin-top: 1.5em;
+      padding: 0.3em;
+    }
+  
+    section {
+      padding: 1em;
+  
+      p {
+        font-weight: bold;
+      }
+    }
+  
+    figure {
+      text-align: center;
+    }
+  }
+
+  @mixin border-style($color, $width: 1px) {
+    border: $width solid $color;
+  }
+  
+  @mixin flex-layout {
+    display: flex;
+    justify-content: right;
+  }
+  
+  @media screen and (min-width: 700px) {
+    nav ul {
+      @include flex-layout;
+      margin: 0;
+    }
+  
+    nav {
+      margin-bottom: 1.2em;
+    }
+  
+    article {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+    }
+  
+    .post-date {
+      @include border-style($border-color);
+      border-bottom: none;
+      border-right: 1px solid $border-color;
+      margin: 0;
+      padding-top: 1.5em;
+    }
+  
+    .post-content {
+      border-bottom: 1px dotted $border-color;
+    }
+  }
+  
